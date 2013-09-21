@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Gid espn:</strong>
+  <%= @box_score.gid_espn %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @box_score.status %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @box_score.date %>
+</p>
+
+<%= link_to 'Edit', edit_box_score_path(@box_score) %> |
+<%= link_to 'Back', box_scores_path %>

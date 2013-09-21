@@ -69,6 +69,6 @@ class BoxScoreEntriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def box_score_entry_params
-      params.require(:box_score_entry).permit(:pid_espn, :fname, :lname, :status, :min, :fgm, :fga, :tpm, :tpa, :ftm, :fta, :oreb, :reb, :ast, :stl, :blk, :to, :pf, :plus_minus, :pts)
+      params.require(:box_score_entry).permit(:box_score_id, :pid_espn, :fname, :lname, :status, :min, :fgm, :fga, :tpm, :tpa, :ftm, :fta, :oreb, :reb, :ast, :stl, :blk, :to, :pf, :plus_minus, :pts)
     end
 end

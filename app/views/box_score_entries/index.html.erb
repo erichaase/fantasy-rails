@@ -3,6 +3,7 @@
 <table>
   <thead>
     <tr>
+      <th>Box score id</th>
       <th>Pid espn</th>
       <th>Fname</th>
       <th>Lname</th>
@@ -32,6 +33,7 @@
   <tbody>
     <% @box_score_entries.each do |box_score_entry| %>
       <tr>
+        <td><%= box_score_entry.box_score_id %></td>
         <td><%= box_score_entry.pid_espn %></td>
         <td><%= box_score_entry.fname %></td>
         <td><%= box_score_entry.lname %></td>

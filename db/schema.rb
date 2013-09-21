@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130921032934) do
+ActiveRecord::Schema.define(version: 20130921041447) do
 
   create_table "box_score_entries", force: true do |t|
     t.integer  "pid_espn"
@@ -36,8 +36,21 @@ ActiveRecord::Schema.define(version: 20130921032934) do
     t.integer  "pts"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "box_score_id"
   end
 
+  add_index "box_score_entries", ["box_score_id"], name: "index_box_score_entries_on_box_score_id", using: :btree
   add_index "box_score_entries", ["pid_espn"], name: "index_box_score_entries_on_pid_espn", using: :btree
+
+  create_table "box_scores", force: true do |t|
+    t.integer  "gid_espn"
+    t.string   "status"
+    t.date     "date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "box_scores", ["date"], name: "index_box_scores_on_date", using: :btree
+  add_index "box_scores", ["gid_espn"], name: "index_box_scores_on_gid_espn", unique: true, using: :btree
 
 end

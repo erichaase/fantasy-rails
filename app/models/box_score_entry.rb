@@ -1,3 +1,5 @@
 class BoxScoreEntry < ActiveRecord::Base
-  # TODO model validations
+  belongs_to :box_score
+
+  # TODO add validations
 end
