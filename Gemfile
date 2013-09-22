@@ -19,6 +19,10 @@ group :production do
   gem 'rails_12factor', '0.0.2'
 end
 
+group :development, :test do
+  gem 'rspec-rails', '2.13.1'
+end
+
 group :doc do
   gem 'sdoc', '0.3.20', require: false
 end

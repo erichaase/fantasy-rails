@@ -9,4 +9,20 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Fantasy::Application.config.secret_key_base = '9799d8f4c022acb418ba7463d2f820b45c109833247b229ae69ebceb2d918c3a9e9d1a217f639a810d14c8f80a4b87bf5bb8a9ee1e1a24912ab178d10d5523f7'
+
+require 'securerandom'
+
+def secure_token
+  token_file = Rails.root.join('.secret')
+  if File.exist?(token_file)
+    # Use the existing token.
+    File.read(token_file).chomp
+  else
+    # Generate a new token and store it in token_file.
+    token = SecureRandom.hex(64)
+    File.write(token_file, token)
+    token
+  end
+end
+
+Fantasy::Application.config.secret_key_base = secure_token
